@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Scroll</title>
+	<link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet"/>
+	<style>
+		body{
+		padding-top: 50px;
+		}
+	
+		.page{
+		max-width: 1600px;
+		margin: auto;
+		}
+
+		.headerp{
+		padding-bottom: 100px;
+		}
+
+		table{ 
+			border-collapse;
+			width: 100%;
+		}
+
+		th, td{
+		text-align: left;
+		padding: 10px;
+		color: black;
+		}
+
+		h1{
+		font:verdana;
+		color: red;
+		}
+
+		
+	</style>
+</head>
+<body>
+<div class="page">
+
+<!--Navbar-->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+		<button type="button" class="navbar-toggle collapsed"
+		data-toggle="collapse" data-targer="#navbar" aria-expanded="false"
+		aria-controls="navbar">
+			<span class="sr-only">Toggle navigation </span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/#home">Scroll</a>
+		</div>
+
+		<div id="navbar" class="collapse navbar-collapse">
+		<ul class="nav navbar-nav">
+			<li><a href="/#about">About</a></li>
+			<li><a href="/pages">Pages</a></li>
+			<li><a href="/#home">Home</a></li>
+		</ul>
+		</div>
+	</div>
+	</nav>
+
+	<div class="headerp">
+		<div class="header">
+		<a name="home">
+		<img src="/static/img/logo.png" alt="Scroll Logo" style="width:100%;height:750px;" class="center">
+		</div>
+	</div>
+<!--Pages-->
+	<form name="post_form" action="" method="post">
+	
+	<input type="text" placeholder="User Name" name="username">
+	<input type="text" placeholder="Post" name="scrollpost">
+	<button type="submit" class="btn" name="button" value="Post">
+		Scroll Post Submit
+	</button>
+	</form>
+
+
+	<h1>Posts</h1>
+	<table border =1>
+		<thead>
+			<tr>
+			<th>User</th>
+			<th>Post</th>
+			</tr>
+		</thead>
+		{% for row in rows %}
+		<tr>
+			<td>{{row["user"]}}</td>
+			<td>{{row["body"]}}</td>
+		</tr>
+		{% endfor %}
+	</table>	
+
